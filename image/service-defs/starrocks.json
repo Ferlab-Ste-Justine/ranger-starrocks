@@ -144,6 +144,7 @@
       "description": "StarRocks View",
       "accessTypeRestrictions": [
         "drop",
+        "select",
         "alter"
       ]
     },
@@ -171,7 +172,8 @@
       "accessTypeRestrictions": [
         "refresh",
         "drop",
-        "alter"
+        "alter",
+        "select"
       ]
     },
     {
