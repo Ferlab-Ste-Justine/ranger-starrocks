@@ -143,6 +143,7 @@
       "label": "StarRocks View",
       "description": "StarRocks View",
       "accessTypeRestrictions": [
+        "select",
         "drop",
         "select",
         "alter"
@@ -170,6 +171,7 @@
       "label": "StarRocks Materialized View",
       "description": "StarRocks Materialized View",
       "accessTypeRestrictions": [
+        "select",
         "refresh",
         "drop",
         "alter",
