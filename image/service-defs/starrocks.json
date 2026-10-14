@@ -145,7 +145,6 @@
       "accessTypeRestrictions": [
         "select",
         "drop",
-        "select",
         "alter"
       ]
     },
@@ -174,8 +173,7 @@
         "select",
         "refresh",
         "drop",
-        "alter",
-        "select"
+        "alter"
       ]
     },
     {
