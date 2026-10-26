@@ -49,6 +49,7 @@ ranger:
   # External URL of the admin UI — used for RANGER_POLICYMGR_EXTERNAL_URL and as the default
   # ingress host (scheme + port stripped). Override serve.ingress.hosts to use a different host.
   externalUrl: ""
+  loginAutolockEnabled: true
 
 starrocks:
   # true  -> RANGER_STARROCKS_AUTOCOMPLETE=yes: enables the StarRocks plugin class (UI Test
