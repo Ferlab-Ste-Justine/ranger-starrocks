@@ -137,6 +137,8 @@ against the DB that migrate populated).
 - name: RANGER_REGISTER_ON_SERVE
   value: "false"
 {{- include "ranger.credEnv" (dict "name" "RANGER_DB_PASSWORD" "spec" .Values.db.password "secret" .Values.db.secret "key" "RANGER_DB_PASSWORD") }}
+- name: RANGER_ADMIN_LOGIN_AUTOLOCK_ENABLED
+  value: {{ .Values.ranger.loginAutolockEnabled | quote }}
 {{- end }}
 
 {{/*

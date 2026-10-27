@@ -62,6 +62,9 @@ esac
 : "${RANGER_POLICYMGR_EXTERNAL_URL:=http://localhost:6080}"
 export RANGER_POLICYMGR_EXTERNAL_URL
 
+: "${RANGER_ADMIN_LOGIN_AUTOLOCK_ENABLED:=true}"
+export RANGER_ADMIN_LOGIN_AUTOLOCK_ENABLED
+
 # Render the template, substituting ONLY our RANGER_* placeholders. Shell tokens that setup.sh must
 # evaluate itself (e.g. XAPOLICYMGR_DIR=$PWD, LOGFILES="$LOGFILE") are left untouched -- this mirrors
 # the stock ranger.sh, which copies the template verbatim. The base image has python3 but no envsubst.
@@ -77,10 +80,18 @@ with open(sys.argv[2], "w") as fh:
 PY
 }
 
+setup_login_autolock_enabled() {
+  python3 "${ADMIN_DIR}/update_property.py" \
+      ranger.admin.login.autolock.enabled \
+      "${RANGER_ADMIN_LOGIN_AUTOLOCK_ENABLED}" \
+      "${ADMIN_DIR}/ews/webapp/WEB-INF/classes/conf/ranger-admin-default-site.xml"
+}
+
 run_setup() {
   render_props
   cd "${ADMIN_DIR}"
   ./setup.sh
+  setup_login_autolock_enabled
 }
 
 start_admin() {
